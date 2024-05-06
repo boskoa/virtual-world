@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <title>World Editor</title>
+</head>
+
+<body>
+  <h1>World Editor</h1>
+  <canvas id="myCanvas"></canvas>
+  <div id="controls">
+    <button onclick="addRandomPoint()">Add Point</button>
+    <button onclick="removeRandomPoint()">Remove Point</button>
+    <button onclick="addRandomSegment()">Add Segment</button>
+    <button onclick="removeRandomSegment()">Remove Segment</button>
+    <button onclick="removeAll()">Remove All</button>
+  </div>
+
+  <script src="js/primitives/point.js"></script>
+  <script src="js/primitives/segment.js"></script>
+  <script src="js/math/graph.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+
+</html>
