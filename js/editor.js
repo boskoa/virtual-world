@@ -22,6 +22,9 @@ const viewport = new Viewport(myCanvas);
 const graphEditor = new GraphEditor(viewport, graph);
 
 let oldGraphHash = graph.hash();
+
+setMode("graph");
+
 animate();
 
 function animate() {
@@ -45,6 +48,32 @@ function dispose() {
 
 function save() {
   localStorage.setItem("graph", JSON.stringify(graph));
+}
+
+function setMode(mode) {
+  disableEditors();
+  switch (mode) {
+    case "graph":
+      graphBtn.style.backgroundColor = "rgb(27, 161, 83)";
+      graphBtn.style.color = "black";
+      graphBtn.style.boxShadow = "0 0 5px 0 rgb(27, 161, 83)";
+      break;
+    case "stop":
+      stopBtn.style.backgroundColor = "rgb(27, 161, 83)";
+      stopBtn.style.color = "black";
+      stopBtn.style.boxShadow = "0 0 5px 0 rgb(27, 161, 83)";
+      break;
+    default:
+      return;
+  }
+}
+
+function disableEditors() {
+  [...document.querySelectorAll(".dissable")].forEach((e) => {
+    e.style.backgroundColor = "darkgray";
+    e.style.color = "lightgray";
+    e.style.boxShadow = "none";
+  });
 }
 
 /* 
