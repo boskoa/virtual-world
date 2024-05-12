@@ -7,6 +7,19 @@ function getNearestPoint(point, points, treshold = 20) {
   return match;
 }
 
+function getNearestSegment(loc, segments, threshold = Number.MAX_SAFE_INTEGER) {
+  let minDist = Number.MAX_SAFE_INTEGER;
+  let nearest = null;
+  for (const segment of segments) {
+    const dist = segment.distanceToPoint(loc);
+    if (dist < minDist && dist < threshold) {
+      minDist = dist;
+      nearest = segment;
+    }
+  }
+  return nearest;
+}
+
 function distance(p1, p2) {
   return Math.hypot(p1.x - p2.x, p1.y - p2.y);
 }
@@ -37,6 +50,10 @@ function normalize(p) {
 
 function magnitude(p) {
   return Math.hypot(p.x, p.y);
+}
+
+function perpendicular(p) {
+  return new Point(-p.y, p.x);
 }
 
 function translate(loc, angle, offset) {

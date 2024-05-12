@@ -21,8 +21,14 @@
     <button onclick="dispose()">Delete</button>
     <button onclick="save()">Save</button>
     &nbsp;
-    <button class="dissable" id="graphBtn" onClick="setMode('graph')">Graph</button>
-    <button class="dissable" id="stopBtn" onClick="setMode('stop')">Stop</button>
+    <button class="dissable" id="graphBtn" onClick="setMode('graph')">🌐</button>
+    <button class="dissable" id="stopBtn" onClick="setMode('stop')">🛑</button>
+    <button class="dissable" id="crossingBtn" onClick="setMode('crossing')">🚶</button>
+    <button class="dissable" id="yieldBtn" onclick="setMode('yield')">⚠️</button>
+    <button class="dissable" id="parkingBtn" onclick="setMode('parking')">🅿️</button>
+    <button class="dissable" id="lightBtn" onclick="setMode('light')">🚦</button>
+    <button class="dissable" id="startBtn" onclick="setMode('start')">🚙</button>
+    <button class="dissable" id="targetBtn" onclick="setMode('target')">🎯</button>
   </div>
 
   <script src="js/primitives/point.js"></script>
@@ -31,8 +37,24 @@
   <script src="js/primitives/envelope.js"></script>
   <script src="js/math/utils.js"></script>
   <script src="js/math/graph.js"></script>
-  <script src="js/graphEditor.js"></script>
+  <script src="js/editors/markingEditor.js"></script>
+  <script src="js/editors/graphEditor.js"></script>
+  <script src="js/editors/stopEditor.js"></script>
+  <script src="js/editors/startEditor.js"></script>
+  <script src="js/editors/crossingEditor.js"></script>
+  <script src="js/editors/parkingEditor.js"></script>
+  <script src="js/editors/lightEditor.js"></script>
+  <script src="js/editors/targetEditor.js"></script>
+  <script src="js/editors/yieldEditor.js"></script>
   <script src="js/viewport.js"></script>
+  <script src="js/markings/marking.js"></script>
+  <script src="js/markings/stop.js"></script>
+  <script src="js/markings/start.js"></script>
+  <script src="js/markings/crossing.js"></script>
+  <script src="js/markings/parking.js"></script>
+  <script src="js/markings/light.js"></script>
+  <script src="js/markings/target.js"></script>
+  <script src="js/markings/yield.js"></script>
   <script src="js/items/building.js"></script>
   <script src="js/items/tree.js"></script>
   <script src="js/world.js"></script>
