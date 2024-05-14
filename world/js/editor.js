@@ -106,3 +106,23 @@ function disableEditors() {
     tool.editor.disable();
   }
 }
+
+function openOsmPanel() {
+  osmPanel.style.display = "block";
+}
+
+function closeOsmPanel() {
+  osmPanel.style.display = "none";
+}
+
+function parseOsmData() {
+  if (osmDataContainer.value === "") {
+    alert("Paste data first");
+    return;
+  }
+
+  const result = Osm.parseRoads(JSON.parse(osmDataContainer.value));
+  graph.points = result.points;
+  graph.segments = result.segments;
+  closeOsmPanel();
+}
