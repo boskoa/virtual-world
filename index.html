@@ -13,7 +13,10 @@
     <button onclick="save()">save</button>
     <button onclick="discard()">discard</button>
   </div>
-  <canvas id="networkCanvas"></canvas>
+  <div>
+    <canvas id="networkCanvas"></canvas>
+    <canvas id="miniMapCanvas"></canvas>
+  </div>
   <script src="world/js/primitives/point.js"></script>
   <script src="world/js/primitives/segment.js"></script>
   <script src="world/js/primitives/polygon.js"></script>
@@ -45,6 +48,7 @@
   <script src="world/saves/big.world"></script>
 
   <script src="utils.js"></script>
+  <script src="miniMap.js"></script>
   <script src="visualizer.js"></script>
   <script src="network.js"></script>
   <script src="sensor.js"></script>

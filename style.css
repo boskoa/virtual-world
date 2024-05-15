@@ -20,6 +20,10 @@ body {
   background-color: black;
 }
 
+#miniMapCanvas {
+  background-color: black;
+}
+
 #verticalButtons {
   display: flex;
   flex-direction: column;
