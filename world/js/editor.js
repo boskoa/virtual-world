@@ -3,9 +3,11 @@ myCanvas.width = 560;
 myCanvas.height = 560;
 
 const ctx = myCanvas.getContext("2d");
+/* 
 const worldString = localStorage.getItem("world");
 const worldInfo = worldString ? JSON.parse(worldString) : null;
 let world = worldInfo ? World.load(worldInfo) : new World(new Graph());
+ */
 const graph = world.graph;
 const viewport = new Viewport(myCanvas, world.zoom, world.offset);
 const tools = {
@@ -58,7 +60,7 @@ function save() {
   element.setAttribute(
     "href",
     "data:application/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(world))
+      encodeURIComponent(`const world = World.load(${JSON.stringify(world)});`)
   );
   const fileName = "name.world";
   element.setAttribute("download", fileName);
@@ -67,7 +69,7 @@ function save() {
 
   localStorage.setItem("world", JSON.stringify(world));
 }
-
+/* 
 function load(event) {
   const file = event.target.files[0];
 
@@ -81,13 +83,17 @@ function load(event) {
 
   reader.onload = (e) => {
     const fileContent = e.target.result;
-    const jsonData = JSON.parse(fileContent);
+    const jsonString = fileContent.substring(
+      fileContent.indexOf("(") + 1,
+      fileContent.lastIndexOf(")")
+    );
+    const jsonData = JSON.parse(jsonString);
     world = World.load(jsonData);
     localStorage.setItem("world", JSON.stringify(world));
     location.reload();
   };
 }
-
+ */
 function setMode(mode) {
   disableEditors();
   tools[mode].button.style.backgroundColor = "rgb(27, 161, 83)";

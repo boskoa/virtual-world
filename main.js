@@ -18,7 +18,7 @@ const world = worldInfo ? World.load(worldInfo) : new World(new Graph());
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 const miniMap = new MiniMap(miniMapCanvas, world.graph, 300);
 
-const N = 1;
+const N = 10;
 const trafficCount = 20;
 const positions = getPositions(trafficCount);
 const cars = generateCars(N);
@@ -27,7 +27,7 @@ if (localStorage.getItem("bestBrain")) {
   cars.forEach((car, i) => {
     car.brain = JSON.parse(localStorage.getItem("bestBrain"));
     if (i !== 0) {
-      NeuralNetwork.mutate(car.brain, 0.2);
+      NeuralNetwork.mutate(car.brain, 0.1);
     }
   });
 }
@@ -57,9 +57,18 @@ function generateCars(N) {
   const startAngle = -angle(dir) + Math.PI / 2;
   const cars = [];
   for (let i = 0; i < N; i++) {
-    cars.push(
-      new Car(startPoint.x, startPoint.y, 30, 50, "AI", startAngle, 3, "blue")
+    const car = new Car(
+      startPoint.x,
+      startPoint.y,
+      30,
+      50,
+      "AI",
+      startAngle,
+      3,
+      "blue"
     );
+    car.load(carInfo);
+    cars.push(car);
   }
 
   return cars;

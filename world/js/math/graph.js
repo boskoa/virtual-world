@@ -10,7 +10,8 @@ class Graph {
       (s) =>
         new Segment(
           points.find((p) => p.equals(s.p1)),
-          points.find((p) => p.equals(s.p2))
+          points.find((p) => p.equals(s.p2)),
+          s.oneWay
         )
     );
 
