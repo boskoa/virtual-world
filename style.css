@@ -44,3 +44,47 @@ body {
     background-color: rgb(0, 71, 71);
   }
 }
+
+.miniMap {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  opacity: 0.6;
+  border-radius: 50%;
+  border: 3px solid gold;
+}
+
+#statistics {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  overflow: auto;
+  gap: 2px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  padding-left: 20px;
+  background-color: black;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 0.6;
+  border-radius: 10px;
+  border: 3px solid gold;
+}
+
+#counter {
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  text-align: center;
+  left: calc(50vw - 80px);
+  top: calc(50vh - 30px);
+  color: white;
+  -webkit-text-stroke: 3px black;
+  font-size: 100px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.8;
+}

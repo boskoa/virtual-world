@@ -197,7 +197,7 @@ class World {
     return trees;
   }
 
-  generateCorridor(start, end) {
+  generateCorridor(start, end, extendEnd = false) {
     const startSegment = getNearestSegment(start, this.graph.segments);
     const endSegment = getNearestSegment(end, this.graph.segments);
 
@@ -231,13 +231,25 @@ class World {
       segs.push(new Segment(path[i - 1], path[i]));
     }
 
+    if (extendEnd) {
+      const lastSegment = segs[segs.length - 1];
+      const lastSegmentDir = lastSegment.directionVector();
+      segs.push(
+        new Segment(
+          lastSegment.p2,
+          add(lastSegment.p2, scale(lastSegmentDir, this.roadWidth * 2))
+        )
+      );
+    }
+
     const tmpEnvelopes = segs.map(
       (s) => new Envelope(s, this.roadWidth, this.roadRoundness)
     );
+    if (extendEnd) segs.pop();
 
     const segments = Polygon.union(tmpEnvelopes.map((e) => e.poly));
 
-    this.corridor = segments;
+    this.corridor = { borders: segments, skeleton: segs };
   }
 
   #generateLaneGuides() {
@@ -333,7 +345,7 @@ class World {
     }
 
     if (this.corridor) {
-      for (const segment of this.corridor) {
+      for (const segment of this.corridor.borders) {
         segment.draw(ctx, { color: "red", width: 4 });
       }
     }

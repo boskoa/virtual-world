@@ -4,19 +4,15 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <title>Self Driving Car</title>
+  <title>Self Driving Car - Race</title>
 </head>
 
 <body>
   <canvas id="carCanvas"></canvas>
-  <div id="verticalButtons">
-    <button onclick="save()">save</button>
-    <button onclick="discard()">discard</button>
-  </div>
-  <div>
-    <canvas id="networkCanvas"></canvas>
-    <canvas id="miniMapCanvas"></canvas>
-  </div>
+  <canvas id="miniMapCanvas" class="miniMap"></canvas>
+  <div id="statistics"></div>
+  <div id="counter"></div>
+
   <script src="world/js/primitives/point.js"></script>
   <script src="world/js/primitives/segment.js"></script>
   <script src="world/js/primitives/polygon.js"></script>
@@ -57,7 +53,7 @@
   <script src="sensor.js"></script>
   <script src="controls.js"></script>
   <script src="car.js"></script>
-  <script src="main.js"></script>
+  <script src="race.js"></script>
 </body>
 
 </html>

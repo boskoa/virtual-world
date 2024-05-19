@@ -13,7 +13,8 @@ class Car {
     this.y = y;
     this.width = width;
     this.height = height;
-
+    this.color = color;
+    this.type = controlType;
     this.speed = 0;
     this.acceleration = 0.2;
     this.maxSpeed = maxSpeed;
@@ -161,7 +162,8 @@ class Car {
   }
 
   draw(ctx, drawSensor = false) {
-    /* if (this.damaged) {
+    /* 
+    if (this.damaged) {
       ctx.fillStyle = "red";
     } else {
       ctx.fillStyle = color;
@@ -171,11 +173,11 @@ class Car {
     for (let i = 1; i < this.polygon.length; i++) {
       ctx.lineTo(this.polygon[i].x, this.polygon[i].y);
     }
-
-    ctx.fill(); */
+    */
+    ctx.fill();
 
     if (this.sensor && drawSensor) {
-      this.sensor.draw(ctx);
+      //this.sensor.draw(ctx);
     }
 
     ctx.save();
