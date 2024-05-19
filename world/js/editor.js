@@ -34,7 +34,7 @@ function animate() {
   viewport.reset();
 
   if (graph.hash() !== oldGraphHash) {
-    world.generate();
+    //world.generate();
     oldGraphHash = graph.hash();
   }
 
