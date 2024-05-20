@@ -50,16 +50,21 @@ let started = false;
 
 function startCounter() {
   counter.innerText = "3";
+  beep(400);
   setTimeout(() => {
     counter.innerText = "2";
+    beep(400);
     setTimeout(() => {
       counter.innerText = "1";
+      beep(400);
       setTimeout(() => {
         counter.innerText = "GO!";
+        beep(700);
         setTimeout(() => {
           counter.innerText = "";
           started = true;
           frameCount = 0;
+          myCar.engine = new Engine();
         }, 1000);
       }, 1000);
     }, 1000);
@@ -136,6 +141,9 @@ function updateCarProgress(car) {
     if (car.progress >= 1) {
       car.progress = 1;
       car.finishTime = frameCount;
+      if (car == myCar) {
+        taDaa();
+      }
     }
   }
 }
