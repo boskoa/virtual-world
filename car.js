@@ -98,6 +98,7 @@ class Car {
   }
 
   #assessDamage(roadBorders, traffic) {
+    return false; // remove
     for (let i = 0; i < roadBorders.length; i++) {
       if (polysIntersect(this.polygon, roadBorders[i])) {
         return true;

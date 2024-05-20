@@ -45,7 +45,7 @@ class Polygon {
     }
   }
 
-  static break(poly1, poly2) {
+  static break(poly1, poly2, markIntersections = false) {
     const { segments: segments1 } = poly1;
     const { segments: segments2 } = poly2;
 
@@ -60,6 +60,10 @@ class Polygon {
 
         if (int && int.offset != 1 && int.offset != 0) {
           const point = new Point(int.x, int.y);
+
+          if (markIntersections) {
+            point.intersection = true;
+          }
 
           let aux = segments1[i].p2;
           segments1[i].p2 = point;
@@ -93,6 +97,10 @@ class Polygon {
     }
 
     return false;
+  }
+
+  containsPoly(poly) {
+    return poly.points.filter((p) => this.containsPoint(p)).length > 0;
   }
 
   containsSegment(segment) {

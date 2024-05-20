@@ -2,7 +2,10 @@ const rightPanelWidth = 200;
 
 const carCanvas = document.getElementById("carCanvas");
 carCanvas.width = window.innerWidth;
-carCanvas.height = window.innerHeight;
+carCanvas.height = window.innerHeight / 2;
+const cameraCanvas = document.getElementById("cameraCanvas");
+cameraCanvas.width = window.innerWidth;
+cameraCanvas.height = window.innerHeight / 2;
 const miniMapCanvas = document.getElementById("miniMapCanvas");
 miniMapCanvas.width = rightPanelWidth;
 miniMapCanvas.height = rightPanelWidth;
@@ -11,6 +14,7 @@ statistics.style.width = `${rightPanelWidth}px`;
 statistics.style.height = `${window.innerHeight - rightPanelWidth - 30}px`;
 
 const carCtx = carCanvas.getContext("2d");
+const cameraCtx = cameraCanvas.getContext("2d");
 
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 const miniMap = new MiniMap(miniMapCanvas, world.graph, rightPanelWidth);
@@ -18,6 +22,8 @@ const miniMap = new MiniMap(miniMapCanvas, world.graph, rightPanelWidth);
 const N = 50;
 const cars = generateCars(1, "KEYS").concat(generateCars(N, "AI"));
 const myCar = cars[0];
+const camera = new Camera(myCar);
+
 if (localStorage.getItem("bestBrain")) {
   cars.forEach((car, i) => {
     car.brain = JSON.parse(localStorage.getItem("bestBrain"));
@@ -46,7 +52,7 @@ if (target) {
 }
 
 let frameCount = 0;
-let started = false;
+let started = true; //change back to false
 
 function startCounter() {
   counter.innerText = "3";
@@ -185,6 +191,10 @@ function animate() {
       }
     }
   }
+
+  camera.move(myCar);
+  camera.draw(carCtx);
+  camera.render(cameraCtx, world);
 
   frameCount++;
   requestAnimationFrame(animate);
