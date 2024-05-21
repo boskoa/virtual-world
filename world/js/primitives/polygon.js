@@ -109,7 +109,7 @@ class Polygon {
   }
 
   containsPoint(point) {
-    const outerPoint = new Point(-1000, -1000);
+    const outerPoint = new Point(-100000, -100000);
     let intersectionCount = 0;
 
     for (const segment of this.segments) {

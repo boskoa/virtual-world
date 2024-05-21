@@ -52,7 +52,7 @@ if (target) {
 }
 
 let frameCount = 0;
-let started = true; //change back to false
+let started = false;
 
 function startCounter() {
   counter.innerText = "3";
