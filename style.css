@@ -89,7 +89,8 @@ body {
   opacity: 0.8;
 }
 
-#raceBody {
-  display: flex;
-  flex-direction: column;
+#cameraCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

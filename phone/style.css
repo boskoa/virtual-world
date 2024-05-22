@@ -1,0 +1,6 @@
+canvas {
+  background-color: orange;
+  position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 350px);
+}
