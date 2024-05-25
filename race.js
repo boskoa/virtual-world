@@ -19,7 +19,7 @@ const cameraCtx = cameraCanvas.getContext("2d");
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 const miniMap = new MiniMap(miniMapCanvas, world.graph, rightPanelWidth);
 
-const N = 50;
+const N = 5;
 const cars = generateCars(1, "KEYS").concat(generateCars(N, "AI"));
 const myCar = cars[0];
 const camera = new Camera(myCar);

@@ -164,7 +164,6 @@ class Car {
     if (this.speed !== 0) {
       if (this.controls.tilt) {
         this.angle -= this.controls.tilt * 0.03;
-        console.log("FOOO");
       } else {
         const flip = this.speed > 0 ? 1 : -1;
         if (this.controls.left) {

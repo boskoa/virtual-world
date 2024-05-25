@@ -4,12 +4,13 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
-  <title>Self Driving Car - Race</title>
+  <title>Self Driving Car - Camera</title>
 </head>
 
 <body id="raceBody">
   <canvas id="carCanvas"></canvas>
   <canvas id="cameraCanvas" style="top: 50%; left: 0;"></canvas>
+  <canvas id="detectorCanvas"></canvas>
   <canvas id="miniMapCanvas" class="miniMap"></canvas>
   <div id="statistics"></div>
   <div id="counter"></div>
@@ -57,6 +58,14 @@
   <script src="controls.js"></script>
   <script src="car.js"></script>
   <script src="race.js"></script>
+
+  <script src="markerDetector.js"></script>
+  <script src="cameraControls.js"></script>
+
+  <script>
+    const controls = new CameraControls(detectorCanvas);
+    myCar.controls = controls;
+  </script>
 </body>
 
 </html>
