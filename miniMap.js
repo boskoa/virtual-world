@@ -1,8 +1,9 @@
 class MiniMap {
-  constructor(canvas, graph, size) {
+  constructor(canvas, graph, size, cars) {
     this.canvas = canvas;
     this.graph = graph;
     this.size = size;
+    this.cars = cars;
 
     canvas.width = size;
     canvas.height = size;
@@ -24,6 +25,15 @@ class MiniMap {
 
     for (const segment of this.graph.segments) {
       segment.draw(this.ctx, { width: 3 / scaler, color: "white" });
+    }
+
+    for (const car of this.cars) {
+      this.ctx.beginPath();
+      this.ctx.arc(car.x, car.y, 5 / scaler, 0, Math.PI * 2);
+      this.ctx.fillStyle = "rgba(200, 50, 30, 0.9)";
+      this.ctx.lineWidth = 2 / scaler;
+      this.ctx.fill();
+      this.ctx.stroke();
     }
 
     this.ctx.restore();

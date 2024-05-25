@@ -18,8 +18,8 @@ function explode() {
     osc.stop(1);
 
     envelope.gain.value = 0;
-    envelope.gain.linearRampToValueAtTime(1, 0.1);
-    envelope.gain.linearRampToValueAtTime(0, 1);
+    envelope.gain.linearRampToValueAtTime(0.5, 0.1);
+    envelope.gain.linearRampToValueAtTime(0, 0.5);
     envelope.connect(audioContext.destination);
   }
 }
